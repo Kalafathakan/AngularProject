@@ -4,6 +4,10 @@
     <div *ngIf="name.invalid && name.touched">Name is required!</div>
     Rating: <input type="text" name="rating" ngModel #rating="ngModel" required/><br />
     <div *ngIf="rating.invalid && rating.touched">Rating is required!</div>
+
+    <!--<select [(ngModel)]="selectedValue" name="rating" ngModel #rating="ngModel"  required>
+        <option *ngFor="let s of stars" [value]="s">{{s.rating}}</option>
+    </select><br />-->
     Review: <input type="text" name="review" ngModel #review="ngModel" required/><br />
     <div *ngIf="review.invalid && review.touched">Review is required!</div> <br />
     <input class="input-background" type="submit" value="Template Registration" [disabled]="myForm.invalid" />

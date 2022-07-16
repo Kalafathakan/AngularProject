@@ -62,6 +62,7 @@ export class ReviewsComponent implements OnInit {
       rating: "1"
     }
   ];
+  selectedValue = null;
 
   constructor() { }
 
