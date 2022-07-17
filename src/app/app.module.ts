@@ -12,6 +12,9 @@ import { DealsComponent } from './components/deals/deals.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { HomeComponent } from './components/home/home.component';
+import { FaqComponent } from './components/faq/faq.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { MenuComponent } from './components/menu/menu.component';
     GalleryComponent,
     ReviewsComponent,
     MenuComponent,
+    HomeComponent,
+    FaqComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
