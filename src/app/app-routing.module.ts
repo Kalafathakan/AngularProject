@@ -12,7 +12,8 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
 import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
-  { path: 'home', redirectTo: '', component: HomeComponent},
+  { path: '', component: HomeComponent},
+  { path: 'home', redirectTo: ''},
   { path: 'faq', component: FaqComponent },
   { path: 'about', component: AboutComponent },
   { path: 'menu', component: MenuComponent },
