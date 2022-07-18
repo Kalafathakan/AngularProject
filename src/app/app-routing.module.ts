@@ -10,6 +10,10 @@ import { DealsComponent } from './components/deals/deals.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { MyDashboardComponent } from './components/my-dashboard/my-dashboard.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -23,6 +27,10 @@ const routes: Routes = [
   { path: 'gallery', component: GalleryComponent },
   { path: 'reviews', component: ReviewsComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'mypage', component: MyDashboardComponent },
 ];
 
 @NgModule({

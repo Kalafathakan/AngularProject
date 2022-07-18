@@ -15,6 +15,10 @@ import { MenuComponent } from './components/menu/menu.component';
 import { HomeComponent } from './components/home/home.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { AboutComponent } from './components/about/about.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { MyDashboardComponent } from './components/my-dashboard/my-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,10 @@ import { AboutComponent } from './components/about/about.component';
     HomeComponent,
     FaqComponent,
     AboutComponent,
+    RegisterComponent,
+    LoginComponent,
+    AdminComponent,
+    MyDashboardComponent,
   ],
   imports: [
     BrowserModule,
