@@ -1,68 +1,64 @@
 <div class='container-info'>
-    <h1 id="topics-hk">Reserve a seat today!</h1>
-    <div class='row-info'>
-      <div class='col-info'>
+  <h1 id="topics-hk">Reserve a seat today!</h1>
+  <div class='row-info'>
+    <div class='col-info'>
 
-        <h2>Select date</h2>
-        <!-- <Calendar
+      <h2>Select date</h2>
+      <!-- <ejs-calendar id=calendar [value]='value' [min]='minDate' [max]='maxDate' > </ejs-calendar > -->
+      <!-- <Calendar
           onChange={changedDate}
           minDate={new Date()}
           maxDate={myFutureDate}
           value={date}
         /> -->
-        <p>Current selected date is <b></b></p>
+      <!-- <input [matDatepicker]="basicDatepicker">
+        <mat-datepicker-toggle [for]="basicDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #basicDatepicker></mat-datepicker>
+        <p>Current selected date is <b></b></p> -->
 
-        <div class='select-input'>
-          <h2>Select time slot</h2>
-          <label>Available Time slot</label> &nbsp; &nbsp;
-          <select >
-              <option class="dropdown-item" >time</option>
-            
-          </select>
-          <p>You have selected time</p>
-        </div>
-      </div>
-      <div class='col-info'>
-        <form id="form-info" onSubmit={handleSubmit}>
+      <div class='select-input'>
+        <h2>Select time slot</h2>
+        <label>Available Time slot</label> &nbsp; &nbsp;
+        <select>
+          <option class="dropdown-item">time</option>
 
-          <fieldset style="padding: 20px">
-            <legend>Your Info</legend>
-            <input type="hidden" class="form-control" id="date-info" value={date.toDateString()} />
-            <input type="hidden" class="form-control" id="time-info" value={timeSelected} />
-
-            <div class="form-group">
-              <label>Name</label><br />
-              <input
-                name="fullname"
-                class="form-control"
-                id="name-info"
-                placeholder="Enter name"
-                type="text"
-              />
-            </div>
-            <div class="form-group">
-              <label>Email address</label><br />
-              <input
-                name="email"
-                type="text"
-                class="form-control"
-                id="email-info"
-                placeholder="Enter email" />
-            </div>
-            <div class="form-group">
-              <label>Phone number</label><br />
-              <input
-                name="phoneno"
-                type="text"
-                class="form-control"
-                id="phoneno-info"
-                placeholder="Phone number" />
-            </div>
-            <br />
-            <button type="submit" class="btn-info">Book now!</button>
-          </fieldset>
-        </form>
+        </select>
+        <p>You have selected time</p>
       </div>
     </div>
-    <br /> <br /> <br /> <br />
+    <div class='col-info'>
+      <form id="form-info" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+        <fieldset style="padding: 20px">
+          <legend>Your Info</legend>
+          <input type="hidden" class="form-control" id="date-info" value={date.toDateString()} />
+          <input type="hidden" class="form-control" id="time-info" value={timeSelected} />
+
+          <div class="form-group">
+            <div class="error"
+              *ngIf="registerForm.get('name')?.invalid && (registerForm.get('name')?.dirty || registerForm.get('name')?.touched || registerForm.get('name')?.untouched)">
+              Name is required</div>
+            <input formControlName="name" class="form-control" id="name-info" placeholder="Enter name" type="text" />
+          </div>
+          <div class="form-group">
+            <div class="error"
+              *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched || registerForm.get('email')?.untouched)">
+              Email is required</div>
+            <div class="error" *ngIf="registerForm.get('email')?.errors?.['email']">Email invalid</div>
+            <input formControlName="email" type="text" class="form-control" id="email-info" placeholder="Enter email" />
+          </div>
+          <div class="form-group">
+            <div class="error"
+              *ngIf="registerForm.get('phoneno')?.invalid && (registerForm.get('phoneno')?.dirty || registerForm.get('phoneno')?.touched || registerForm.get('phoneno')?.untouched)">
+              Phone number is required</div>
+            <input formControlName="phoneno" type="text" class="form-control" id="phoneno-info"
+              placeholder="Phone number" />
+          </div>
+          <br />
+          <button type="submit" class="btn-info" [disabled]="registerForm.invalid">Book now!</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <br /> <br /> <br /> <br />
 </div>

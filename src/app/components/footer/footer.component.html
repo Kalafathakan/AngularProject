@@ -4,14 +4,20 @@
             <nav>
                 <ul id='dashboard'>
                     <li id='sections'>
-                        <h3><a routerLink='/faq'>FAQ</a></h3>
+                        <h3><a routerLink='faq'>FAQ</a></h3>
                     </li>
                     <li id='sections'>
-                        <h3><a routerLink='/subscribe'>Subscribe to our Newsletter</a></h3>
+                        <h3><a (click)="toggleShow()">Subscribe to our Newsletter</a></h3>
                     </li>
                 </ul>
             </nav>
         </div>
+
+<div *ngIf="isShown" class="row container-fluid"  id="divshow" >
+    <app-newsletter></app-newsletter>
+
+</div>
+       
         <div class='group-box'>
             <h3>Group Members</h3>
             <ul>

@@ -88,3 +88,6 @@ legend {
 .btn-info:hover {
     background-color: rgb(120, 117, 117);
 }
+.error{
+    color: red;
+  }

@@ -14,6 +14,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { MyDashboardComponent } from './components/my-dashboard/my-dashboard.component';
+import { NewsletterComponent } from './components/newsletter/newsletter.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -31,6 +33,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'mypage', component: MyDashboardComponent },
+
+ 
 ];
 
 @NgModule({

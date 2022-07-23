@@ -19,7 +19,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { MyDashboardComponent } from './components/my-dashboard/my-dashboard.component';
-
+import { NewsletterComponent } from './components/newsletter/newsletter.component';
+import {
+  MatDatepickerModule} from '@angular/material/datepicker';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,12 +40,16 @@ import { MyDashboardComponent } from './components/my-dashboard/my-dashboard.com
     LoginComponent,
     AdminComponent,
     MyDashboardComponent,
+    NewsletterComponent,
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
