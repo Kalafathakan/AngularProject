@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -22,6 +22,7 @@ import { MyDashboardComponent } from './components/my-dashboard/my-dashboard.com
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import {
   MatDatepickerModule} from '@angular/material/datepicker';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,11 +41,10 @@ import {
     LoginComponent,
     AdminComponent,
     MyDashboardComponent,
-    NewsletterComponent,
-
-
+    NewsletterComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

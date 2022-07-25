@@ -1,1 +1,22 @@
-<p>menu works!</p>
+<div class='page-style-hk'>
+    <h1 id="topics-hk">Menu</h1>
+    <ng-container *ngFor="let category of getCategories()">
+        <h2>{{category}}</h2>
+        <div class="food-items">
+            <ng-container *ngFor="let f of food">
+                <div *ngIf="f.category == category" class="food-box">
+                    <div class='food-img'>
+                        <img src="https://shielded-depths-40144.herokuapp.com/assets/images/{{f.image}}"
+                            alt={{f.food_name}} class="img-responsive img-curve" height="auto" width="150px" />
+                    </div>
+                    <div class='food-details'>
+                        <h4><b>{{f.food_name}}</b></h4>
+                        <p class="food-price">{{f.price}}</p>
+                        <p class="food-desc">{{f.description}}</p>
+                        <button class="menu-btn">Add to cart</button>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+</div>

@@ -17,3 +17,7 @@
     width: auto;
     max-width: 500px;
 }
+
+.gallery-container {
+    text-align: center;
+}

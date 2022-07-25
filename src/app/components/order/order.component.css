@@ -1,0 +1,13 @@
+.order-table th {
+    background-color: #367bc1;
+    color: white;
+  }
+  
+  .order-table td, .order-table th {
+    text-align: center;
+    border: 2px inset #3a3a3a;
+  }
+
+  .order-table table {
+    width: 100%;
+  }
