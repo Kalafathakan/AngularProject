@@ -1,4 +1,4 @@
-<br /><br />
+<h1 id="topics-hk">Reviews</h1>
 <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
     Name: <input type="text" name="name" ngModel #name="ngModel" required/><br />
     <div *ngIf="name.invalid && name.touched">Name is required!</div>
@@ -23,10 +23,10 @@
 </div>
 
 <div *ngFor="let r of reviews">
-  <div *ngIf="searchValue === '' || r.name.toLowerCase().includes(searchValue)">
-    <p>Name - {{ r.name }}</p>
-    <p >Rating - {{ r.rating}} </p>
-    <p>Review- {{ r.review }}</p>
+  <div id="review-results-div" *ngIf="searchValue === '' || r.name.toLowerCase().includes(searchValue)">
+    <p><strong>Name</strong> - {{ r.name }}</p>
+    <p ><strong>Rating</strong> - {{ r.rating}} </p>
+    <p><strong>Review</strong> - {{ r.review }}</p>
     <hr />
   </div>
 </div>
