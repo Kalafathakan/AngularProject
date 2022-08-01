@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { ReviewsService, IReviews } from 'src/app/Services/reviews.service';
 
 @Component({
   selector: 'app-reviews',
@@ -8,33 +9,9 @@ import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 })
 export class ReviewsComponent implements OnInit {
   searchValue: string = "";
-  reviews = [
-    {
-      "name": "Nicholas",
-      "rating": "5",
-      "review": "Amazing Deals and unresistable taste! Definitely will be back!",
-    },
-    {
-      "name": "Guray",
-      "rating": "3",
-      "review": "The drink and main combo is priced extremely well",
-    },
-    {
-      "name": "Vishnu",
-      "rating": "4.5",
-      "review": "The right amount of food for the price",
-    },
-    {
-      "name": "Zafer",
-      "rating": "4.5",
-      "review": "Finished my meal and wanted more from it being so good",
-    },
-    {
-      "name": "Oreoluwa",
-      "rating": "4",
-      "review": "Would recommend to everyone",
-    }
-  ]
+
+  reviews: IReviews[] = [];
+
   stars = [
     {
       label: "5 Stars",
@@ -64,9 +41,14 @@ export class ReviewsComponent implements OnInit {
   ];
   selectedValue = null;
 
-  constructor() { }
+  constructor(private myReviewService: ReviewsService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.myReviewService.getReviews().subscribe((data) => {
+      this.reviews = data;
+   });
+  }
+
     //validation done inline, can be just 1 or an array of them
     RegistrationForm = new FormGroup({
       name: new FormControl<string | null>('', [Validators.required, Validators.minLength(3)]),
@@ -76,7 +58,11 @@ export class ReviewsComponent implements OnInit {
   
     onSubmit(form: NgForm) {
       console.log(form);
-      this.reviews.push({ name: form.value.name, rating: form.value.rating, review: form.value.review });
+      //this.reviews.push({ name: this.form.name, rating: this.form.value.rating, review: this.form.value.review });
       form.reset();
     }
+
+/*     addReview() {
+      this.myReviewService.addReview().subscribe((data) => console.log(data));
+    } */
 }

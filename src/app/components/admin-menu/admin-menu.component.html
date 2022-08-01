@@ -3,7 +3,7 @@
     <ng-container *ngFor="let category of getCategories()">
         <h2>{{category}}</h2>
         <div class="food-items">
-            <ng-container *ngFor="let f of adminService.getMenu()">
+            <ng-container *ngFor="let f of food">
                 <div *ngIf="f.category == category" class="food-box">
                     <div class='food-img'>
                         <img src="https://shielded-depths-40144.herokuapp.com/assets/images/{{f.image}}"
@@ -13,7 +13,10 @@
                         <h4><b>{{f.food_name}}</b></h4>
                         <p class="food-price">{{f.price}}</p>
                         <p class="food-desc">{{f.description}}</p>
-                        <button class="menu-btn">Add to cart</button>
+                       
+                        <button  class="btn btn-warning me-2" (click)="editFood(f.food_id)"  >Edit</button>
+                        <button  class="btn btn-danger" (click)="deleteFood(f.food_id)"   >Delete</button>
+                        
                     </div>
                 </div>
             </ng-container>
