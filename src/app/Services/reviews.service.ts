@@ -18,4 +18,8 @@ export class ReviewsService {
     getReviews() : Observable<IReviews[]>{
       return this.http.get<IReviews[]>(this.url);
     }
+
+/*     addReview() : Observable<IReviews> {
+      return this.http.post<IReviews>(this.url, {name: this.name.value, rating: rating.value, review: review.value});
+    } */
 }
