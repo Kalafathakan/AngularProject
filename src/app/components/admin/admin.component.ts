@@ -6,6 +6,7 @@ import {
   Validator,
   Validators,
 } from '@angular/forms';
+import { AdminServiceService } from 'src/app/Services/admin-service.service';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -38,7 +39,7 @@ export class AdminComponent implements OnInit {
    
   }
 
-  constructor() { }
+  constructor(public adminService: AdminServiceService) { }
 
   ngOnInit(): void {
   }

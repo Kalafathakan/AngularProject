@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminServiceService } from 'src/app/Services/admin-service.service';
 import { MenuService, MenuType } from 'src/app/Services/menu.service';
 
 
@@ -13,7 +14,7 @@ export class AdminMenuComponent implements OnInit {
 
   categories: string[] = ["Starters", "Mains", "Curries", "Desserts", "Beverages"];
 
-  constructor( private myMenuService: MenuService) { }
+  constructor( private myMenuService: MenuService, public adminService: AdminServiceService) { }
 
   ngOnInit(): void {
     this.myMenuService.getMenu().subscribe((data) => {
@@ -26,9 +27,20 @@ export class AdminMenuComponent implements OnInit {
     return this.categories;
   }
 
-  sayHi() {
-    if(confirm("Are you sure to delete ")) {
-      console.log("hi")   
+  editFood(id:string) {
+    if(confirm("Are you sure to edit this food? ")) {
+      this.adminService.findFood(id)
+      console.log( this.adminService.getSelectedFood())
+     // console.log("hi")   
+    
+    }
+   
+  }
+
+  deleteFood(id:string) {
+    if(confirm("Are you sure to delete this food?")) {
+      this.adminService.findFood(id)
+     // console.log("hi")   
     
     }
    

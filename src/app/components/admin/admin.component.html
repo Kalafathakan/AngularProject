@@ -10,11 +10,13 @@
             <div class="modal-body  ">
               <form class="row justify-content-center "  noValidate [formGroup]="userForm" (ngSubmit)="onSubmit2()">
                 <div class="col-9 row">
+                  
                   <div class="form-floating mb-3 col-6">
                     <input type="text" class="form-control rounded-4" placeholder='Food ID'
                       name='food_id'
                       required
-                      defaultValue={`${fr.formData.food_id}`}
+                      value="{{adminService.getSelectedFood().food_id}}"
+                     
                        />
                     <label htmlFor="id">Food ID</label>
                   </div>
@@ -22,14 +24,14 @@
                     <input type="text" class="form-control rounded-4" placeholder='Food Name'
                       name='food_name'
                       required
-                      defaultValue={`${fr.formData.food_name}`}
+                      value="{{adminService.getSelectedFood().food_name}}"
                       />
                     <label htmlFor="name">Food Name</label>
                   </div>
                   <div class="form-floating mb-3 col-6">
                     <input type="text" class="form-control rounded-4" placeholder='Price'
                       name='price'
-                      defaultValue={`${fr.formData.price}`}
+                      value="{{adminService.getSelectedFood().price}}"
                       />
                     <label htmlFor="price">Price</label>
                   </div>
@@ -38,14 +40,14 @@
                   <div class="form-floating mb-3 col-6">
                     <input type="text" class="form-control rounded-4" placeholder='Category'
                       name='category'
-                      defaultValue={`${fr.formData.category}`}
+                      value="{{adminService.getSelectedFood().category}}"
                       />
                     <label htmlFor="category">Category</label>
                   </div>
                   <div class="form-floating mb-3">
                     <input type="text" class="form-control rounded-4" placeholder='Image'
                       name='image'
-                      defaultValue={`${fr.formData.image}`}
+                      value="{{adminService.getSelectedFood().image}}"
                      />
                     <label htmlFor="image">Image</label>
                   </div>
@@ -54,8 +56,8 @@
                      
                       name='description'
 
-                      defaultValue={`${fr.formData.description}`}
-                       > </textarea>
+                      
+                       >   {{adminService.getSelectedFood().description}}</textarea>
                     <label htmlFor="description">Description</label>
                   </div>
                   <div class="col-6 mx-auto">
