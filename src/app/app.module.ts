@@ -27,6 +27,7 @@ import { MyDashboardComponent } from './components/my-dashboard/my-dashboard.com
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import {
   MatDatepickerModule} from '@angular/material/datepicker';
+import { AdminMenuComponent } from './components/admin-menu/admin-menu.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {
     LoginComponent,
     AdminComponent,
     MyDashboardComponent,
-    NewsletterComponent
+    NewsletterComponent,
+    AdminMenuComponent
   ],
   imports: [
     HttpClientModule,

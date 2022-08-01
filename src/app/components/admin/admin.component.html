@@ -8,7 +8,7 @@
               <h2 class="mx-auto my-auto mt-2 mb-2 display-5 ">Update or Create Food</h2>
             </div>
             <div class="modal-body  ">
-              <form class="row justify-content-center "  noValidate>
+              <form class="row justify-content-center "  noValidate [formGroup]="userForm" (ngSubmit)="onSubmit2()">
                 <div class="col-9 row">
                   <div class="form-floating mb-3 col-6">
                     <input type="text" class="form-control rounded-4" placeholder='Food ID'
@@ -69,8 +69,8 @@
                     </button>
                   </div>
                   <div class="w-100"></div>
-
-
+                  <button  (click)="sayHi()"  class="btn btn-warning me-2"    >deneme</button>
+                 
                 </div>
               </form>
             </div>
@@ -81,6 +81,8 @@
     </div>
   </div>
 
-<app-menu></app-menu>
+
+
+<app-admin-menu> </app-admin-menu>
 
 
