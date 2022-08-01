@@ -8,7 +8,7 @@
               <h2 class="mx-auto my-auto mt-2 mb-2 display-5 ">Update or Create Food</h2>
             </div>
             <div class="modal-body  ">
-              <form class="row justify-content-center "  noValidate [formGroup]="userForm" (ngSubmit)="onSubmit2()">
+              <form class="row justify-content-center "   [formGroup]="userForm" (ngSubmit)="onSubmit()">
                 <div class="col-9 row">
                   
                   <div class="form-floating mb-3 col-6">
@@ -16,7 +16,7 @@
                       name='food_id'
                       required
                       value="{{adminService.getSelectedFood().food_id}}"
-                     
+                      formControlName="food_id"
                        />
                     <label htmlFor="id">Food ID</label>
                   </div>
@@ -25,6 +25,7 @@
                       name='food_name'
                       required
                       value="{{adminService.getSelectedFood().food_name}}"
+                      formControlName="food_name"
                       />
                     <label htmlFor="name">Food Name</label>
                   </div>
@@ -32,10 +33,12 @@
                     <input *ngSwitchCase="0" type="text" class="form-control rounded-4" placeholder='Price'
                       name='price'
                       value= " "
+                     
                       />
                       <input *ngSwitchDefault type="text" class="form-control rounded-4" placeholder='Price'
                       name='price'
                       value= "{{adminService.getSelectedFood().price}} "
+                   
                       />
                     <label htmlFor="price">Price</label>
                   </div>
@@ -45,6 +48,7 @@
                     <input type="text" class="form-control rounded-4" placeholder='Category'
                       name='category'
                       value="{{adminService.getSelectedFood().category}}"
+                      formControlName="category"
                       />
                     <label htmlFor="category">Category</label>
                   </div>
@@ -52,6 +56,7 @@
                     <input type="text" class="form-control rounded-4" placeholder='Image'
                       name='image'
                       value="{{adminService.getSelectedFood().image}}"
+                      formControlName="image"
                      />
                     <label htmlFor="image">Image</label>
                   </div>
@@ -59,19 +64,23 @@
                     <textarea style="height: 120px;" class="form-control rounded-4" placeholder='Description'
                      
                       name='description'
+                      
 
                       
                        >   {{adminService.getSelectedFood().description}}</textarea>
                     <label htmlFor="description">Description</label>
                   </div>
                   <div class="col-6 mx-auto">
-                    
-                    <button class="w-100 mb-2 p-3 btn btn rounded-4 btn-warning rounded-pill"  type="submit">Update
+                    <!-- [disabled]="adminService.getUserForm().invalid" -->
+                    <button (click)="updateFood(adminService.getSelectedFood())" class="w-100 mb-2 p-3 btn btn rounded-4 btn-warning rounded-pill"  type="submit">Update
                     </button>
                   </div>
                   <div class="col-6 mx-auto">
                     
-                    <button class="w-100 mb-2 p-3 btn btn rounded-4 btn-success rounded-pill"  type="button">Create
+                    <button  (click)="createFood(adminService.getSelectedFood())"  class="w-100 mb-2 p-3 btn btn rounded-4 btn-success rounded-pill"  type="submit">Create
+                    </button>
+
+                    <button  (click)="updateForm()"  class="w-100 mb-2 p-3 btn btn rounded-4 btn-success rounded-pill"  type="button">Create
                     </button>
                   </div>
                   <div class="w-100"></div>

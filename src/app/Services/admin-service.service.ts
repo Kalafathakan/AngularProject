@@ -1,8 +1,14 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { MenuType } from './menu.service';
-
+import {
+  NgForm,
+  FormGroup,
+  FormControl,
+  Validator,
+  Validators,
+} from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,6 +16,14 @@ import { MenuType } from './menu.service';
 
 
 export class AdminServiceService {
+
+  // invokeFirstComponentFunction = new EventEmitter();    
+  // subsVar: Subscription | undefined; 
+
+  // onFirstComponentButtonClick() {    
+  //   this.invokeFirstComponentFunction.emit();   
+  //   console.log("cas") 
+  // } 
 
 //  menu$! : Observable<MenuType[]> ;
 
@@ -25,6 +39,36 @@ selectedFood : MenuType = {   "_id": "",
   "image": "",
   "quantity": 0
 }
+
+
+//selectedFood$! : Observable<MenuType> 
+
+userForm = new FormGroup({
+  food_id: new FormControl<string | null>('', [
+    Validators.required,
+   // Validators.minLength(1),
+  ]),
+  food_name: new FormControl<string | null>('', [
+    Validators.required,
+    //Validators.minLength(3),
+  ]),
+  // price: new FormControl<string | null>('', [
+  //   Validators.required,
+  //  // Validators.minLength(1),
+  // ]),
+  category: new FormControl<string | null>('', [
+    Validators.required,
+    //Validators.minLength(3),
+  ]),
+  image: new FormControl<string | null>('', [
+    Validators.required,
+   // Validators.minLength(3),
+  ]),
+  // description: new FormControl<string | null>('', [
+  //   Validators.required,
+  //   //Validators.minLength(5),
+  // ]),
+});
 
 
 
@@ -64,10 +108,22 @@ selectedFood : MenuType = {   "_id": "",
   }
 
   setSelectedFood(food:MenuType){
-    this.selectedFood = food
+ this.selectedFood = food
+
+    
   }
 
+  getUserForm(){
+    return this.userForm
+  }
+  
+
   findFood(id:string){
+    
+
+
+
+    
     // console.log(this.menu)
     // console.log(id)
 
@@ -98,7 +154,6 @@ selectedFood : MenuType = {   "_id": "",
   }
   })
 
- 
 
   }
 
