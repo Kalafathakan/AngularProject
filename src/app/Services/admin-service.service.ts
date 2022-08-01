@@ -11,7 +11,9 @@ import { MenuType } from './menu.service';
 
 export class AdminServiceService {
 
-  menu$! : Observable<MenuType[]> ;
+//  menu$! : Observable<MenuType[]> ;
+
+menu : MenuType[] = []
 
   url: string = "https://shielded-depths-40144.herokuapp.com/foods"
 
@@ -26,13 +28,21 @@ export class AdminServiceService {
 
   }
 
+  // getMenu(){
+  //   return this.menu$
+  // }
+
+  // setMenu(menu: Observable<MenuType[]>){
+
+  //   this.menu$ = menu
+  // }
+
   getMenu(){
-    return this.menu$
+    return this.menu
   }
 
-  setMenu(menu: Observable<MenuType[]>){
-
-    this.menu$ = menu
+  setMenu(menu:MenuType[] ){
+    this.menu = menu
   }
 
 }

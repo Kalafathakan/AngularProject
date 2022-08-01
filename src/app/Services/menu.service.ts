@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SelectMultipleControlValueAccessor } from '@angular/forms';
-import {AdminServiceService} from './admin-service.service'
+
 
 export interface MenuType {
   _id: string;
@@ -21,15 +21,15 @@ export interface MenuType {
 })
 export class MenuService {
   url: string = "https://shielded-depths-40144.herokuapp.com/foods";
-  constructor(private http: HttpClient, private adminService: AdminServiceService) { }
+  constructor(private http: HttpClient) { }
 
   getMenu() : Observable<MenuType[]>{
    
-   this.adminService.setMenu(this.http.get<MenuType[]>(this.url))
+  //  this.adminService.setMenu(this.http.get<MenuType[]>(this.url))
 
-   return this.adminService.getMenu();
+  //  return this.adminService.getMenu();
 
 
-    //return this.http.get<MenuType[]>(this.url);
+    return this.http.get<MenuType[]>(this.url);
   }
 }
