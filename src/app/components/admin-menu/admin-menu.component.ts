@@ -18,7 +18,8 @@ export class AdminMenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.myMenuService.getMenu().subscribe((data) => {
-      this.food = data;
+      //this.food = data;
+      this.adminService.setMenu(data) 
     });
   }
 
