@@ -15,7 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { MyDashboardComponent } from './components/my-dashboard/my-dashboard.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
-
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', component: AdminComponent, canActivate:[AuthGuard] },
   { path: 'mypage', component: MyDashboardComponent },
 
  

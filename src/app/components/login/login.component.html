@@ -6,19 +6,24 @@
                     <div class="modal-header  ">
                         <h2 class="mx-auto my-auto mt-5 mb-4 display-2 ">Sign in</h2>
                     </div>
-                    <h4 class=" text-danger "> <!-- {error && <p>{error}</p>} --> </h4>
+                    <h4 class=" text-danger "> {{errorMessage}} </h4>
                     <div class="modal-body ">
-                        <form class="row justify-content-center">
+                        <form class="row justify-content-center" [formGroup]="loginForm" (ngSubmit)="onSubmit()"  >
                             <div class="col-6">
                                 <div class="form-floating mb-3">
                                     <input type="email" class="form-control rounded-4" placeholder='Email Address'
-                                        name='email' value=""/>
+                                        name='email' value=""
+                                        formControlName="email" 
+                                        
+                                        />
                                     <label htmlFor="email">Email address</label>
                                     <div class="form-text text-danger "><!-- {emailError && <p> {emailError}</p>} --></div>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input type="password" class="form-control rounded-4" placeholder='Password'
-                                        name='password' value=""/>
+                                        name='password' value=""
+                                        formControlName="password"
+                                        />
                                     <label htmlFor="password">Password</label>
                                     <div class="form-text text-danger"><!-- {passwordError && <p>{passwordError}</p>} --></div>
                                 </div>
