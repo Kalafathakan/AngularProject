@@ -9,7 +9,7 @@ import {
 import { check } from '@igniteui/material-icons-extended';
 import { Subscription } from 'rxjs';
 import { AddingFoodType, AdminServiceService } from 'src/app/Services/admin-service.service';
-import { MenuType } from 'src/app/Services/menu.service';
+import { MenuService, MenuType } from 'src/app/Services/menu.service';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -60,9 +60,14 @@ export class AdminComponent implements OnInit {
    
   }
 
-  
+  refreshData(){
+    this.myMenuService.getMenu().subscribe((data) => {
+      //this.food = data;
+      this.adminService.setMenu(data) 
+    });
+  }
 
-  constructor(public adminService: AdminServiceService) { }
+  constructor(public adminService: AdminServiceService, private myMenuService: MenuService) { }
 
   ngOnInit(): void {
     // this.subs.add(this.adminService.getUserForm().valueChanges.subscribe((data)=>{
@@ -126,6 +131,7 @@ export class AdminComponent implements OnInit {
 
       this.adminService.addFood(data).subscribe(data =>{
         console.log(data)
+        this.refreshData()
       })
     
     }
