@@ -18,7 +18,8 @@ export class AdminMenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.myMenuService.getMenu().subscribe((data) => {
-      this.food = data;
+      //this.food = data;
+      this.adminService.setMenu(data) 
     });
   }
 
@@ -31,8 +32,13 @@ export class AdminMenuComponent implements OnInit {
     if(confirm("Are you sure to edit this food? ")) {
       this.adminService.findFood(id)
       console.log( this.adminService.getSelectedFood())
-     // console.log("hi")   
+     // console.log("hi")  
+     
+    // this.adminService.getUserForm.updateValueAndValidity();
     
+   // this.adminService.onFirstComponentButtonClick(); 
+
+
     }
    
   }
