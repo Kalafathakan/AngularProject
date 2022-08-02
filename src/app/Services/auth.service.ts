@@ -45,5 +45,13 @@ export class AuthService {
       );
   }
 
+  logOut(){
+
+    this._isLoggedIn$.next(false);
+    //localStorage.setItem('authToken', '');
+    localStorage.removeItem('authToken')
+
+  }
+
 
 }
