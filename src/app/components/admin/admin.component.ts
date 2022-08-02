@@ -103,7 +103,27 @@ export class AdminComponent implements OnInit {
     if(confirm("Are you sure to edit this food? ")) {
     //   this.adminService.findFood(id)
     //   console.log( this.adminService.getSelectedFood())
-    //  // console.log("hi")   
+    //  // console.log("hi")  
+    
+    
+    console.log(this.adminService.getUserForm())
+
+    var data : AddingFoodType  = {
+     "food_id": this.adminService.getUserForm().value.food_id!,
+     "food_name": this.adminService.getUserForm().value.food_name!,
+     "price": parseInt(this.adminService.getUserForm().value.price!),
+     "description": this.adminService.getUserForm().value.description!,
+     "category": this.adminService.getUserForm().value.category!,
+     "image": this.adminService.getUserForm().value.image!,
+  
+
+
+    }
+
+     this.adminService.updateFood(data).subscribe(data =>{
+       console.log(data)
+       this.refreshData()
+     })
     
     }
    

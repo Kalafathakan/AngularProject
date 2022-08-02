@@ -94,7 +94,11 @@ userForm = new FormGroup({
 
   constructor(private http: HttpClient) { }
 
-  updateFood(){
+  updateFood(data:AddingFoodType):Observable<any>{
+    const headers = { 'content-type': 'application/json'} 
+    console.log("url")
+    console.log(this.url+"/"+data.food_id)
+    return this.http.put<AddingFoodType>(this.url+"/"+data.food_id,data,{'headers':headers} )
 
   }
 
