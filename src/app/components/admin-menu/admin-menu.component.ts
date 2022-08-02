@@ -43,10 +43,23 @@ export class AdminMenuComponent implements OnInit {
    
   }
 
+  refreshData(){
+    this.myMenuService.getMenu().subscribe((data) => {
+      //this.food = data;
+      this.adminService.setMenu(data) 
+    });
+  }
+
   deleteFood(id:string) {
     if(confirm("Are you sure to delete this food?")) {
-      this.adminService.findFood(id)
-     // console.log("hi")   
+      //this.adminService.findFood(id)
+
+      console.log("id" +id )
+      this.adminService.deleteFood(id).subscribe(data =>{
+        console.log(data)
+        this.refreshData()
+      })
+     
     
     }
    

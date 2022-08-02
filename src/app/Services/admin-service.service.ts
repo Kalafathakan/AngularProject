@@ -102,7 +102,10 @@ userForm = new FormGroup({
 
   }
 
-  deleteFood(){
+  deleteFood(id:string):Observable<any>{
+
+    return this.http.delete<AddingFoodType>(this.url+"/"+id )
+
 
   }
 
