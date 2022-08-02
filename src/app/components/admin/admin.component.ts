@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { check } from '@igniteui/material-icons-extended';
 import { Subscription } from 'rxjs';
-import { AdminServiceService } from 'src/app/Services/admin-service.service';
+import { AddingFoodType, AdminServiceService } from 'src/app/Services/admin-service.service';
 import { MenuType } from 'src/app/Services/menu.service';
 @Component({
   selector: 'app-admin',
@@ -94,7 +94,7 @@ export class AdminComponent implements OnInit {
   //   this.userForm.value.food_name = "deneme"
   // }
 
-  updateFood(data:MenuType) {
+  updateFood() {
     if(confirm("Are you sure to edit this food? ")) {
     //   this.adminService.findFood(id)
     //   console.log( this.adminService.getSelectedFood())
@@ -104,11 +104,29 @@ export class AdminComponent implements OnInit {
    
   }
 
-  createFood(data:MenuType) {
-    if(confirm("Are you sure to edit this food? ")) {
+  createFood() {
+    if(confirm("Are you sure to create this food? ")) {
       // this.adminService.findFood(id)
       // console.log( this.adminService.getSelectedFood())
      // console.log("hi")   
+     
+     console.log(this.adminService.getUserForm())
+
+     var data : AddingFoodType  = {
+      "food_id": this.adminService.getUserForm().value.food_id!,
+      "food_name": this.adminService.getUserForm().value.food_name!,
+      "price": parseInt(this.adminService.getUserForm().value.price!),
+      "description": this.adminService.getUserForm().value.description!,
+      "category": this.adminService.getUserForm().value.category!,
+      "image": this.adminService.getUserForm().value.image!,
+   
+
+
+     }
+
+      this.adminService.addFood(data).subscribe(data =>{
+        console.log(data)
+      })
     
     }
 

@@ -9,9 +9,25 @@ import {
   Validator,
   Validators,
 } from '@angular/forms';
+
+export interface AddingFoodType {
+  
+  food_id: string;
+  food_name: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+
+}
+
+
+
 @Injectable({
   providedIn: 'root'
 })
+
+
 
 
 
@@ -83,6 +99,14 @@ userForm = new FormGroup({
   }
 
   deleteFood(){
+
+  }
+
+  addFood(data:AddingFoodType):Observable<any> {
+
+    
+    const headers = { 'content-type': 'application/json'} 
+    return this.http.post<AddingFoodType>(this.url,data,{'headers':headers} )
 
   }
 
