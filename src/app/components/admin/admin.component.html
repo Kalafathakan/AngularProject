@@ -8,7 +8,7 @@
               <h2 class="mx-auto my-auto mt-2 mb-2 display-5 ">Update or Create Food</h2>
             </div>
             <div class="modal-body  ">
-              <form class="row justify-content-center "   [formGroup]="userForm" (ngSubmit)="onSubmit()">
+              <form class="row justify-content-center "   [formGroup]="adminService.getUserForm()" (ngSubmit)="onSubmit()">
                 <div class="col-9 row">
                   
                   <div class="form-floating mb-3 col-6">
@@ -80,8 +80,7 @@
                     <button  (click)="createFood(adminService.getSelectedFood())"  class="w-100 mb-2 p-3 btn btn rounded-4 btn-success rounded-pill"  type="submit">Create
                     </button>
 
-                    <button  (click)="updateForm()"  class="w-100 mb-2 p-3 btn btn rounded-4 btn-success rounded-pill"  type="button">Create
-                    </button>
+                   
                   </div>
                   <div class="w-100"></div>
                  

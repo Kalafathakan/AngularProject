@@ -52,10 +52,10 @@ userForm = new FormGroup({
     Validators.required,
     //Validators.minLength(3),
   ]),
-  // price: new FormControl<string | null>('', [
-  //   Validators.required,
-  //  // Validators.minLength(1),
-  // ]),
+  price: new FormControl<string | null>('', [
+    Validators.required,
+   // Validators.minLength(1),
+  ]),
   category: new FormControl<string | null>('', [
     Validators.required,
     //Validators.minLength(3),
@@ -64,10 +64,10 @@ userForm = new FormGroup({
     Validators.required,
    // Validators.minLength(3),
   ]),
-  // description: new FormControl<string | null>('', [
-  //   Validators.required,
-  //   //Validators.minLength(5),
-  // ]),
+  description: new FormControl<string | null>('', [
+    Validators.required,
+    //Validators.minLength(5),
+  ]),
 });
 
 
@@ -153,6 +153,20 @@ userForm = new FormGroup({
   
   }
   })
+  this.userForm.updateValueAndValidity()
+  this.userForm.value.food_id = this.selectedFood.food_id
+  this.userForm.value.food_name = this.selectedFood.food_name
+  this.userForm.value.price = this.selectedFood.price.toString()
+  this.userForm.value.category = this.selectedFood.category
+  this.userForm.value.image = this.selectedFood.image
+  this.userForm.value.description = this.selectedFood.description
+
+  this.userForm.controls['food_id'].setValue(this.selectedFood.food_id)
+  this.userForm.controls['food_name'].setValue(this.selectedFood.food_name)
+  this.userForm.controls['price'].setValue(this.selectedFood.price.toString())
+  this.userForm.controls['category'].setValue(this.selectedFood.category)
+  this.userForm.controls['image'].setValue(this.selectedFood.image)
+  this.userForm.controls['description'].setValue(this.selectedFood.description)
 
 
   }
