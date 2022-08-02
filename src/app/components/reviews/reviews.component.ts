@@ -56,13 +56,12 @@ export class ReviewsComponent implements OnInit {
       review: new FormControl<string | null>('', [Validators.required, Validators.maxLength(460)]),
     })
   
-    onSubmit(form: NgForm) {
-      console.log(form);
-      //this.reviews.push({ name: this.form.name, rating: this.form.value.rating, review: this.form.value.review });
-      form.reset();
+    onSubmit(ngForm: NgForm) {
+      console.log(ngForm);
+      console.log(ngForm.value.name!)
+      console.log(ngForm.value.rating!)
+      console.log(ngForm.value.review!)
+      this.myReviewService.addReview(ngForm).subscribe((data) => console.log(data));
+      ngForm.reset();
     }
-
-/*     addReview() {
-      this.myReviewService.addReview().subscribe((data) => console.log(data));
-    } */
 }
