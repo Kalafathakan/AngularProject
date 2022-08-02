@@ -25,8 +25,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { MyDashboardComponent } from './components/my-dashboard/my-dashboard.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
-import {
-  MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule} from '@angular/material/datepicker';
 import { AdminMenuComponent } from './components/admin-menu/admin-menu.component';
 
 @NgModule({
