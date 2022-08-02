@@ -46,22 +46,22 @@ export class ReviewsComponent implements OnInit {
   ngOnInit(): void {
     this.myReviewService.getReviews().subscribe((data) => {
       this.reviews = data;
-   });
+    });
   }
 
-    //validation done inline, can be just 1 or an array of them
-    RegistrationForm = new FormGroup({
-      name: new FormControl<string | null>('', [Validators.required, Validators.minLength(3)]),
-      rating: new FormControl<string | null>('', Validators.required),
-      review: new FormControl<string | null>('', [Validators.required, Validators.maxLength(460)]),
-    })
-  
-    onSubmit(ngForm: NgForm) {
-      console.log(ngForm);
-      console.log(ngForm.value.name!)
-      console.log(ngForm.value.rating!)
-      console.log(ngForm.value.review!)
-      this.myReviewService.addReview(ngForm).subscribe((data) => console.log(data));
-      ngForm.reset();
-    }
+  //validation done inline, can be just 1 or an array of them
+  RegistrationForm = new FormGroup({
+    name: new FormControl<string | null>('', [Validators.required, Validators.minLength(3)]),
+    rating: new FormControl<string | null>('', Validators.required),
+    review: new FormControl<string | null>('', [Validators.required, Validators.maxLength(460)]),
+  })
+
+  onSubmit(ngForm: NgForm) {
+    console.log(ngForm);
+    console.log(ngForm.value.name!)
+    console.log(ngForm.value.rating!)
+    console.log(ngForm.value.review!)
+    this.myReviewService.addReview(ngForm).subscribe((data) => console.log(data));
+    ngForm.reset();
+  }
 }
