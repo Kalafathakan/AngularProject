@@ -9,7 +9,7 @@ import { MenuService, MenuType } from 'src/app/Services/menu.service';
   styleUrls: ['./admin-menu.component.css']
 })
 export class AdminMenuComponent implements OnInit {
-
+  searchValue: string = '';
   food: MenuType[] = [];
 
   categories: string[] = ["Starters", "Mains", "Curries", "Desserts", "Beverages"];
