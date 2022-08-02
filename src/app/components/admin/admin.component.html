@@ -33,12 +33,12 @@
                     <input *ngSwitchCase="0" type="text" class="form-control rounded-4" placeholder='Price'
                       name='price'
                       value= " "
-                     
+                      formControlName="price"
                       />
                       <input *ngSwitchDefault type="text" class="form-control rounded-4" placeholder='Price'
                       name='price'
                       value= "{{adminService.getSelectedFood().price}} "
-                   
+                      formControlName="price"
                       />
                     <label htmlFor="price">Price</label>
                   </div>
@@ -64,7 +64,7 @@
                     <textarea style="height: 120px;" class="form-control rounded-4" placeholder='Description'
                      
                       name='description'
-                      
+                      formControlName="description"
 
                       
                        >   {{adminService.getSelectedFood().description}}</textarea>
