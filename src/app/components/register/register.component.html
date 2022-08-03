@@ -7,38 +7,51 @@
                         <h2 class="mx-auto my-auto mt-5 mb-4 display-2 ">Sign Up</h2>
                     </div>
                     <h4 class=" text-danger ">
-                        <!--{error && <p >{error}</p>}-->
+                       {{errorMessage}}
                     </h4>
                     <div class="modal-body ">
-                        <form class="row justify-content-center ">
+                        <form class="row justify-content-center" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
                             <div class="col-6">
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control rounded-4" placeholder='Name' name='name'
-                                        required value="" />
+                                        
+                                        formControlName="name" 
+                                        />
                                     <label htmlFor="name">Name</label>
                                     <!-- <div class="form-text text-danger">{nameError && <p >{nameError}</p>} </div> -->
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input type="email" class="form-control rounded-4" placeholder='Email Address'
-                                        name='email' value="" />
+                                        name='email' value=""
+                                        formControlName="email" 
+                                        
+                                        
+                                        />
                                     <label htmlFor="email">Email address</label>
-                                    <!-- <div class="form-text text-danger"> {emailError && <p >{emailError}</p>} </div> -->
+                                    <div class="form-text text-danger">  <p >{{errorEmail}}</p> </div>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input type="password" class="form-control rounded-4" placeholder='Password'
-                                        name='password' value="" />
+                                        name='password' 
+                                        formControlName="password" 
+                                        
+                                        />
                                     <label htmlFor="password">Password</label>
-                                    <!-- <div class="form-text text-danger">{pswdError && <p >{pswdError}</p>}</div> -->
+                                    <div class="form-text text-danger"> <p >{{errorPassword}}</p></div>
                                 </div>
 
                                 <div class="form-floating mb-3">
                                     <input type="password" class="form-control rounded-4" placeholder='Confirm Password'
-                                        name='password2' value="" />
+                                        name='cpassword' value=""
+                                        
+                                        formControlName="cpassword" 
+                                        
+                                        />
                                     <label htmlFor="password">Confirm Password</label>
                                     <!-- <div class="form-text text-danger">  {cpswdError && <p >{cpswdError}</p>}</div> -->
                                 </div>
                                 <div class="col-9 mx-auto">
-                                    <button class="w-100 mb-2 p-3 btn btn-lg rounded-4 btn-primary rounded-pill"
+                                    <button [disabled]="signUpForm.invalid" class="w-100 mb-2 p-3 btn btn-lg rounded-4 btn-primary rounded-pill"
                                         type="submit">Sign
                                         up</button>
                                 </div>

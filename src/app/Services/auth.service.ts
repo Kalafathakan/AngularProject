@@ -22,7 +22,9 @@ export interface ITodo {
 export class AuthService {
   private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this._isLoggedIn$.asObservable();
-  private url: string = 'https://shielded-depths-40144.herokuapp.com/login';
+  private urlForLogin: string = 'https://shielded-depths-40144.herokuapp.com/login';
+
+  private urlForSignUp: string =  'https://shielded-depths-40144.herokuapp.com/registration'
 
 
 
@@ -33,7 +35,7 @@ export class AuthService {
 
    login(email: string, password: string): Observable<IAuth> {
     return this.http
-      .post<IAuth>(this.url, {
+      .post<IAuth>(this.urlForLogin, {
         email: email,
         password: password,
       })
@@ -44,6 +46,22 @@ export class AuthService {
         })
       );
   }
+
+  signUp(name:string,email: string, password: string): Observable<IAuth> {
+    return this.http
+      .post<IAuth>(this.urlForSignUp, {
+        name: name,
+        email: email,
+        password: password,
+      })
+      .pipe(
+        tap((response: any) => {
+          this._isLoggedIn$.next(true);
+          localStorage.setItem('authToken', response.token);
+        })
+      );
+  }
+
 
   logOut(){
 
