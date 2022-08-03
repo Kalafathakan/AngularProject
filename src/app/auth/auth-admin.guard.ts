@@ -12,12 +12,18 @@ export class AuthAdminGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
       let isAdminLogged = false
-      this.authService.isAdminLoggedIn$.subscribe(data=>{
+      // this.authService.isAdminLoggedIn$.subscribe(data=>{
+      //   isAdminLogged = data
+      //   console.log(data)
+      // })
+
+
+       this.authService._isAdminLoggedIn$.subscribe(data =>
         isAdminLogged = data
-        console.log(data)
-      })
+        )
+
       if (!isAdminLogged) {
-        console.log(this.authService.isLoggedIn$)
+        //console.log(this.authService.isLoggedIn$)
         this.router.navigateByUrl('/login');
         return false;
       }

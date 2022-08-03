@@ -82,6 +82,7 @@ export class AppModule {
    if(myToken){ 
    decodeddata = jwt_decode(myToken)
     console.log("test")
+    aut._isLoggedIn$.next(true)
     let accountType = decodeddata.user.accountType
     if (accountType === 'admin') {
       console.log("account is admin")

@@ -30,11 +30,15 @@ export class AuthService {
     }
   }
 
-  private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
-  isLoggedIn$ = this._isLoggedIn$.asObservable();
+  public _isLoggedIn$ = new BehaviorSubject<boolean>(false);
+  //isLoggedIn$ = this._isLoggedIn$.asObservable();
+
+  //isLoggedIn = new BehaviorSubject(false)
 
   public _isAdminLoggedIn$ = new BehaviorSubject<boolean>(false);
-  isAdminLoggedIn$ = this._isAdminLoggedIn$.asObservable();
+ // isAdminLoggedIn$ = this._isAdminLoggedIn$.asObservable();
+ //isAdminLoggedIn = new BehaviorSubject(false)
+
 
 
 
@@ -47,6 +51,17 @@ export class AuthService {
   constructor(private http: HttpClient) {
     const mytoken = localStorage.getItem('authtoken');
     this._isLoggedIn$.next(!!mytoken);
+
+    
+   }
+
+   getUserLogIn(){
+
+    //let u = false
+    this._isLoggedIn$.subscribe(data =>{
+      return data
+    })
+
    }
 
    login(email: string, password: string): Observable<IAuth> {

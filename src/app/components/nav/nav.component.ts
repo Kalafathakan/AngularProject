@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent implements OnInit {
 
   imagePath = '../../../assets/images/logo.png'
-  constructor() { }
+  constructor(public aut:AuthService) { }
 
   ngOnInit(): void {
   }
