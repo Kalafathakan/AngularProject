@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
+import jwt_decode from 'jwt-decode';
 
 
 export interface IAuth {
@@ -20,8 +21,23 @@ export interface ITodo {
   providedIn: 'root'
 })
 export class AuthService {
+
+
+  private decodeddata = {
+    user: {
+      email: "",
+      accountType: ""
+    }
+  }
+
   private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this._isLoggedIn$.asObservable();
+
+  public _isAdminLoggedIn$ = new BehaviorSubject<boolean>(false);
+  isAdminLoggedIn$ = this._isAdminLoggedIn$.asObservable();
+
+
+
   private urlForLogin: string = 'https://shielded-depths-40144.herokuapp.com/login';
 
   private urlForSignUp: string =  'https://shielded-depths-40144.herokuapp.com/registration'
@@ -43,6 +59,17 @@ export class AuthService {
         tap((response: any) => {
           this._isLoggedIn$.next(true);
           localStorage.setItem('authToken', response.token);
+          this.decodeddata = jwt_decode(response.token)
+          let accountType = this.decodeddata.user.accountType
+          if (accountType === 'admin') {
+            console.log("account is admin")
+            this._isAdminLoggedIn$.next(true)
+      
+          }
+
+
+
+          console.log(jwt_decode(response.token))
         })
       );
   }
@@ -64,7 +91,7 @@ export class AuthService {
 
 
   logOut(){
-
+    this._isAdminLoggedIn$.next(false)
     this._isLoggedIn$.next(false);
     //localStorage.setItem('authToken', '');
     localStorage.removeItem('authToken')

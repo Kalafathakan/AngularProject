@@ -27,7 +27,8 @@ import { MyDashboardComponent } from './components/my-dashboard/my-dashboard.com
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { AdminMenuComponent } from './components/admin-menu/admin-menu.component';
-
+import jwt_decode from 'jwt-decode';
+import { AuthService } from './Services/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,4 +64,34 @@ import { AdminMenuComponent } from './components/admin-menu/admin-menu.component
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+  // ngOnInit(): void {
+  //   console.log("test")
+  // }
+
+  constructor(private aut:AuthService) {
+
+    var decodeddata = {
+      user: {
+        email: "",
+        accountType: ""
+      }
+    }
+   let myToken = localStorage.getItem('authToken')!
+   if(myToken){ 
+   decodeddata = jwt_decode(myToken)
+    console.log("test")
+    let accountType = decodeddata.user.accountType
+    if (accountType === 'admin') {
+      console.log("account is admin")
+      aut._isAdminLoggedIn$.next(true)
+
+    }
+
+   }
+
+   }
+
+
+}
