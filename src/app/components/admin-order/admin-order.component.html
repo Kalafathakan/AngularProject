@@ -21,7 +21,7 @@
     </thead>
     <tbody *ngFor=" let o of order; let i = index"  >
         <!-- <span  *ngIf="searchValue === '' || o.name.toLowerCase().includes(searchValue)">  -->
-            <tr *ngIf="searchValue === '' || o.name.toLowerCase().includes(searchValue)">
+            <tr *ngIf="searchValue === '' || o.name.toLowerCase().includes(searchValue.toLowerCase())">
             <td  >{{i+1}}</td>
             <td>{{o.email}}</td>
             <td>{{o.name}}</td>

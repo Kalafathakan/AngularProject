@@ -14,7 +14,7 @@
         <h2>{{category}}</h2>
         <div class="food-items">
             <ng-container *ngFor="let f of adminService.getMenu()">
-                <ng-container *ngIf="searchValue === '' || f.food_name.toLowerCase().includes(searchValue)">
+                <ng-container *ngIf="searchValue === '' || f.food_name.toLowerCase().includes(searchValue.toLowerCase())">
                     <div *ngIf="f.category == category" class="food-box">
 
                         <div class='food-img'>
