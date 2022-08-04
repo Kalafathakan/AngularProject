@@ -6,9 +6,11 @@
     <option *ngFor="let s of stars" [value]="s.value">{{s.rating}}</option>
   </select><br />
   <div *ngIf="rating.invalid && rating.touched">Rating is required!</div>
-  Review: <input type="text" name="review" ngModel #review="ngModel" required /><br />
+  Review: <br /> <textarea class="reviews-textarea" type="text" placeholder='Enter your Review (445 characters max)'
+  maxLength="445" name="review" ngModel #review="ngModel"
+    required></textarea><br />
   <div *ngIf="review.invalid && review.touched">Review is required!</div> <br />
-  <input class="input-background" type="submit" value="Post Review" [disabled]="myForm.invalid" />
+  <input type="submit" value="Post Review" [disabled]="myForm.invalid" />
 </form>
 <hr />
 
