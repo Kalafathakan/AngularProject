@@ -63,5 +63,6 @@ export class ReviewsComponent implements OnInit {
     console.log(ngForm.value.review!)
     this.myReviewService.addReview(ngForm).subscribe((data) => console.log(data));
     ngForm.reset();
+    this.ngOnInit();
   }
 }
