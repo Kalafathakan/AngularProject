@@ -21,6 +21,17 @@ export interface AddingFoodType {
 
 }
 
+export interface OrderType {
+  
+  email: string;
+  name: string;
+  phone: string;
+  cart: string;
+  total: string;
+  date: string;
+
+}
+
 
 
 @Injectable({
@@ -91,8 +102,16 @@ userForm = new FormGroup({
 
   url: string = "https://shielded-depths-40144.herokuapp.com/foods"
 
+  urlOrder: string = "https://shielded-depths-40144.herokuapp.com/orders"
+
 
   constructor(private http: HttpClient) { }
+
+
+  getOrder(): Observable<OrderType[]>{
+    
+    return this.http.get<OrderType[]>(this.urlOrder )
+  }
 
   updateFood(data:AddingFoodType):Observable<any>{
     const headers = { 'content-type': 'application/json'} 

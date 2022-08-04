@@ -17,6 +17,7 @@ import { MyDashboardComponent } from './components/my-dashboard/my-dashboard.com
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthAdminGuard } from './auth/auth-admin.guard';
+import { AdminOrderComponent } from './components/admin-order/admin-order.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -32,7 +33,8 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'admin', component: AdminComponent, canActivate:[AuthAdminGuard] },
+  { path: 'admin-menu', component: AdminComponent, canActivate:[AuthAdminGuard] },
+  { path: 'admin-order', component: AdminOrderComponent, canActivate:[AuthAdminGuard] },
   { path: 'mypage', component: MyDashboardComponent },
 
  
