@@ -3,6 +3,7 @@
   Name: <input type="text" name="name" ngModel #name="ngModel" required /><br />
   <div *ngIf="name.invalid && name.touched">Name is required!</div>
   Rating: <select [(ngModel)]="selectedValue" name="rating" ngModel #rating="ngModel" required>
+    <option value=null selected hidden>Select Star Rating</option>
     <option *ngFor="let s of stars" [value]="s.value">{{s.rating}}</option>
   </select><br />
   <div *ngIf="rating.invalid && rating.touched">Rating is required!</div>
@@ -17,6 +18,7 @@
 <div>
   <span><b>Search </b></span>
   <select [(ngModel)]="searchValue" name="rating" ngModel #rating="ngModel" required>
+    <option value="" selected>All Ratings</option>
     <option *ngFor="let s of stars" [value]="s.value">{{s.rating}}</option>
   </select><br />
   <hr />
