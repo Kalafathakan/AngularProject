@@ -29,6 +29,7 @@ import { MatDatepickerModule} from '@angular/material/datepicker';
 import { AdminMenuComponent } from './components/admin-menu/admin-menu.component';
 import jwt_decode from 'jwt-decode';
 import { AuthService } from './Services/auth.service';
+import { AdminNavigationComponent } from './components/admin-navigation/admin-navigation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ import { AuthService } from './Services/auth.service';
     AdminComponent,
     MyDashboardComponent,
     NewsletterComponent,
-    AdminMenuComponent
+    AdminMenuComponent,
+    AdminNavigationComponent
   ],
   imports: [
     HttpClientModule,
