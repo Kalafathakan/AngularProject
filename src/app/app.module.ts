@@ -30,6 +30,7 @@ import { AdminMenuComponent } from './components/admin-menu/admin-menu.component
 import jwt_decode from 'jwt-decode';
 import { AuthService } from './Services/auth.service';
 import { AdminNavigationComponent } from './components/admin-navigation/admin-navigation.component';
+import { AdminOrderComponent } from './components/admin-order/admin-order.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import { AdminNavigationComponent } from './components/admin-navigation/admin-na
     MyDashboardComponent,
     NewsletterComponent,
     AdminMenuComponent,
-    AdminNavigationComponent
+    AdminNavigationComponent,
+    AdminOrderComponent
   ],
   imports: [
     HttpClientModule,
