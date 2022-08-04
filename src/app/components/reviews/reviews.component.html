@@ -2,10 +2,9 @@
 <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
     Name: <input type="text" name="name" ngModel #name="ngModel" required/><br />
     <div *ngIf="name.invalid && name.touched">Name is required!</div>
-    Rating: <input type="text" name="rating" ngModel #rating="ngModel" required/><br />
-<!--     <select [(ngModel)]="selectedValue" name="rating" ngModel #rating="ngModel"  required>
-        <option *ngFor="let s of stars" [value]="s">{{s.rating}}</option>
-    </select><br /> -->
+    Rating: <select [(ngModel)]="selectedValue" name="rating" ngModel #rating="ngModel"  required>
+        <option *ngFor="let s of stars" [value]="s.value">{{s.rating}}</option>
+    </select><br />
     <div *ngIf="rating.invalid && rating.touched">Rating is required!</div>
     Review: <input type="text" name="review" ngModel #review="ngModel" required/><br />
     <div *ngIf="review.invalid && review.touched">Review is required!</div> <br />
@@ -24,7 +23,7 @@
   <hr />
 </div>
 
-<div *ngFor="let r of reviews"> <!--reviewService.getReviews()-->
+<div *ngFor="let r of reviews">
   <div id="review-results-div" *ngIf="searchValue === '' || r.name.toLowerCase().includes(searchValue)">
     <p><strong>Name</strong> - {{ r.name }}</p>
     <p ><strong>Rating</strong> - {{ r.rating}} </p>
