@@ -31,6 +31,10 @@ import jwt_decode from 'jwt-decode';
 import { AuthService } from './Services/auth.service';
 import { AdminNavigationComponent } from './components/admin-navigation/admin-navigation.component';
 import { AdminOrderComponent } from './components/admin-order/admin-order.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatIconModule } from '@angular/material/icon';
+import { CartComponent } from './components/cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +56,8 @@ import { AdminOrderComponent } from './components/admin-order/admin-order.compon
     NewsletterComponent,
     AdminMenuComponent,
     AdminNavigationComponent,
-    AdminOrderComponent
+    AdminOrderComponent,
+    CartComponent
   ],
   imports: [
     HttpClientModule,
@@ -63,7 +68,10 @@ import { AdminOrderComponent } from './components/admin-order/admin-order.compon
     ReactiveFormsModule,
     MatDatepickerModule, 
     IgxAccordionModule,
-    IgxSwitchModule
+    IgxSwitchModule,
+    MatSidenavModule,
+    MatBadgeModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,5 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 .menu-nav {
     text-transform: uppercase;
 }
@@ -92,4 +94,18 @@
         padding: 2%;
         margin-bottom: 0.5%;
     }  
+}
+
+/********/
+/** CART      **/
+/********/
+.cart-btn {
+  position: fixed;
+  z-index: 100;
+  right: 20px;
+  bottom: 0;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
