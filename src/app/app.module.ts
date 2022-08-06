@@ -35,6 +35,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
 import { CartComponent } from './components/cart/cart.component';
+import { OrderComponent } from './components/order/order.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +59,8 @@ import { CartComponent } from './components/cart/cart.component';
     AdminMenuComponent,
     AdminNavigationComponent,
     AdminOrderComponent,
-    CartComponent
+    CartComponent,
+    OrderComponent
   ],
   imports: [
     HttpClientModule,
