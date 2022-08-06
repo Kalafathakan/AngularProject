@@ -9,21 +9,15 @@ import { MenuService, MenuType } from 'src/app/Services/menu.service';
 })
 export class MenuComponent implements OnInit {
 
-  //food: MenuType[] = [];
-
+  searchValue: string = '';
   categories: string[] = ["Starters", "Mains", "Curries", "Desserts", "Beverages"];
 
   constructor( private myMenuService: MenuService, public adminService: AdminServiceService) { }
 
   ngOnInit(): void {
     this.myMenuService.getMenu().subscribe((data) => {
-     // this.food = data;
      this.adminService.setMenu(data) 
     });
-  }
-
-  getCategories() {
-    return this.categories;
   }
 
 }
