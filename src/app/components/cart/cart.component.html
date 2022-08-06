@@ -1,0 +1,24 @@
+<div class='cart-wrapper'>
+    <h2>Your Cart</h2>
+
+    <hr>
+    <div class="checkout-form">
+        <form [formGroup]="CheckoutForm" (ngSubmit)="onSubmit()">
+            <fieldset>
+                <legend>Place order</legend>
+                Name:<br />
+                <input type="text" formControlName="name" placeholder='Enter Your Name' required />
+                <br />
+                <div class="co-error" *ngIf="CheckoutForm.get('name')?.invalid && CheckoutForm.get('name')?.touched">Name is required!
+                </div><br />
+                Phone Number:<br />
+                <input type="text" formControlName="phone" placeholder='Enter Your Phone Number' maxLength=10 required />
+                <br />
+                <div class="co-error" *ngIf="CheckoutForm.get('phone')?.invalid && CheckoutForm.get('phone')?.touched">Phone Number is
+                    required!
+                </div><br />
+                <input type="submit" value="Submit Order" [disabled]="CheckoutForm.invalid" />
+            </fieldset>
+        </form>
+    </div>
+</div>

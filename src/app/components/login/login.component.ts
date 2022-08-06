@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
       .subscribe({
         next: (res) => {
           console.log(res);
+          localStorage.setItem('email', this.loginForm.value.email!);
           //localStorage.setItem('authtoken', res.token);
           this.router.navigateByUrl('/');
         },
