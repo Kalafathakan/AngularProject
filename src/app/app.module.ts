@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import { 
 	IgxAccordionModule,
 	IgxSwitchModule
@@ -26,11 +27,14 @@ import { AdminComponent } from './components/admin/admin.component';
 import { MyDashboardComponent } from './components/my-dashboard/my-dashboard.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatInputModule} from '@angular/material/input'
 import { AdminMenuComponent } from './components/admin-menu/admin-menu.component';
 import jwt_decode from 'jwt-decode';
 import { AuthService } from './Services/auth.service';
 import { AdminNavigationComponent } from './components/admin-navigation/admin-navigation.component';
 import { AdminOrderComponent } from './components/admin-order/admin-order.component';
+import { ThankyouComponent } from './components/thankyou/thankyou.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +56,8 @@ import { AdminOrderComponent } from './components/admin-order/admin-order.compon
     NewsletterComponent,
     AdminMenuComponent,
     AdminNavigationComponent,
-    AdminOrderComponent
+    AdminOrderComponent,
+    ThankyouComponent
   ],
   imports: [
     HttpClientModule,
@@ -63,7 +68,10 @@ import { AdminOrderComponent } from './components/admin-order/admin-order.compon
     ReactiveFormsModule,
     MatDatepickerModule, 
     IgxAccordionModule,
-    IgxSwitchModule
+    IgxSwitchModule,
+    MatNativeDateModule,
+    MatInputModule 
+
   ],
   providers: [],
   bootstrap: [AppComponent]

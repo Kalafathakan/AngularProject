@@ -18,6 +18,7 @@ import { NewsletterComponent } from './components/newsletter/newsletter.componen
 import { AuthGuard } from './auth/auth.guard';
 import { AuthAdminGuard } from './auth/auth-admin.guard';
 import { AdminOrderComponent } from './components/admin-order/admin-order.component';
+import { ThankyouComponent } from './components/thankyou/thankyou.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'admin-menu', component: AdminComponent, canActivate:[AuthAdminGuard] },
   { path: 'admin-order', component: AdminOrderComponent, canActivate:[AuthAdminGuard] },
   { path: 'mypage', component: MyDashboardComponent },
+  { path: 'thankyou', component: ThankyouComponent}
 
  
 ];

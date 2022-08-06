@@ -66,16 +66,7 @@ legend {
     margin-bottom: 40px !important;
 
 }
-#topics-hk {
-    text-align: center;
-    margin: 40px 0 40px;
-    text-align: center;
-    font-size: 30px;
-    color: #e77510;
-    text-shadow: 1px 1px 2px #000000;
-    font-family: 'Cherry Swash', cursive;
-    text-decoration: underline;
-  }
+
 .btn-info {
     width: 120px;
     height: 40px;
@@ -88,17 +79,3 @@ legend {
 .btn-info:hover {
     background-color: rgb(120, 117, 117);
 }
-.error{
-    color: red;
-  }
-
-  .cal{
-    font-size: xx-large;
-    font-weight: bolder;
-  }
-  .date_container {        
-    float: left;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }

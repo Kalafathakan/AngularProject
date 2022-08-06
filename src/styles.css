@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
 .page-style-hk {
     min-height: calc(100vh - 250px);
     width: 80%;
@@ -23,3 +25,5 @@
   .center {
     text-align: center;
   }
+
+  

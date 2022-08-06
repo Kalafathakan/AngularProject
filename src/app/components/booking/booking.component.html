@@ -2,8 +2,15 @@
   <h1 id="topics-hk">Reserve a seat today!</h1>
   <div class='row-info'>
     <div class='col-info'>
+      <div >
+      <h2 class="cal">Select date</h2>
+      <mat-form-field>
+        <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Choose a date" (ngModelChange)="selectedDate($event)" [(ngModel)]="checkDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker ></mat-datepicker>
+      </mat-form-field>
 
-      <h2>Select date</h2>
+</div>
       <!-- <ejs-calendar id=calendar [value]='value' [min]='minDate' [max]='maxDate' > </ejs-calendar > -->
       <!-- <Calendar
           onChange={changedDate}
@@ -17,13 +24,13 @@
         <p>Current selected date is <b></b></p> -->
 
       <div class='select-input'>
-        <h2>Select time slot</h2>
+        <h2 class="cal">Select time slot</h2>
         <label>Available Time slot</label> &nbsp; &nbsp;
-        <select>
-          <option class="dropdown-item">time</option>
-
+        <select #selectedValue [value]="selectedValue"
+        (change)='onInputChange(selectedValue.value)'>
+          <option class="dropdown-item" *ngFor = "let p of newslot" [value]="p">{{p}}</option>
         </select>
-        <p>You have selected time</p>
+        <p>You have selected time {{selectedValue.value}}</p>
       </div>
     </div>
     <div class='col-info'>
