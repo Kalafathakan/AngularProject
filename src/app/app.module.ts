@@ -35,6 +35,12 @@ import { AuthService } from './Services/auth.service';
 import { AdminNavigationComponent } from './components/admin-navigation/admin-navigation.component';
 import { AdminOrderComponent } from './components/admin-order/admin-order.component';
 import { ThankyouComponent } from './components/thankyou/thankyou.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatIconModule } from '@angular/material/icon';
+import { CartComponent } from './components/cart/cart.component';
+import { OrderComponent } from './components/order/order.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +63,9 @@ import { ThankyouComponent } from './components/thankyou/thankyou.component';
     AdminMenuComponent,
     AdminNavigationComponent,
     AdminOrderComponent,
-    ThankyouComponent
+    ThankyouComponent,
+    CartComponent,
+    OrderComponent
   ],
   imports: [
     HttpClientModule,
@@ -70,8 +78,10 @@ import { ThankyouComponent } from './components/thankyou/thankyou.component';
     IgxAccordionModule,
     IgxSwitchModule,
     MatNativeDateModule,
-    MatInputModule 
-
+    MatInputModule,
+    MatSidenavModule,
+    MatBadgeModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
