@@ -12,3 +12,9 @@ div,form {
     background-color: blanchedalmond;
     padding-left: 1%;
 }
+
+#page-style-hk {
+    min-height: calc(100vh - 250px);
+    width: 80%;
+    margin: 30px auto;
+  }
