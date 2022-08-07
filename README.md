@@ -11,8 +11,7 @@ https://falcons-restaurant.herokuapp.com/
 ### Zafer Hakan Kalafat / N01468413:
 #### -Created the main architecture of the project
 #### -Assigned everyone with their pages and tasks
-#### -Established the github repo 
-#### -Established all the NAVIGATION AND ROUTES
+#### -Established the github repo in the ITE organization
 #### -Contributed in help of creation of the REGISTER part
 #### -Contributed in help of creating API that also supports GALLERY and DEALS&PROMOTIONS PAGE
 
