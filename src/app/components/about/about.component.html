@@ -3,38 +3,15 @@
     <div class="center">
         <p><b>The Development Team</b></p>
         <br />
+
         <div class="persons">
 
-            <div class='person'>
-                <img id='pic' src="assets/images/defaultpic.jpg" />
-                <p id='name'>Zafer Hakan Kalafat</p>
-                <p id='description'>Team Lead</p>
+            <div class='person' *ngFor="let a of about">
+                <img id='pic' src="https://shielded-depths-40144.herokuapp.com/assets/images/{{a.image}}" />
+                <p id='name'>{{a.name}}</p>
+                <p id='description'>{{a.title}}</p>
             </div>
-
-            <div class='person'>
-                <img id='pic' src="assets/images/defaultpic.jpg" />
-                <p id='name'>Guray Demirezen</p>
-                <p id='description'>Back-End Developer</p>
-            </div>
-
-            <div class='person'>
-                <img id='pic' src="assets/images/defaultpic.jpg" />
-                <p id='name'>Vishnu Pillai</p>
-                <p id='description'>Full Stack Developer</p>
-            </div>
-
-            <div class='person'>
-                <img id='pic' src="assets/images/defaultpic.jpg" />
-                <p id='name'>Nicholas Keller-Sedan</p>
-                <p id='description'>Front-End Developer</p>
-            </div>
-
-            <div class='person'>
-                <img id='pic' src="assets/images/defaultpic.jpg" />
-                <p id='name'>Oreoluwa Lawal</p>
-                <p id='description'>Front-End Developer</p>
-            </div>
-
         </div>
+
     </div>
 </div>

@@ -1,32 +1,14 @@
 <igx-switch [(ngModel)]="singleBranchExpand">Single Branch Expand</igx-switch>
-<article class="sample-wrapper igx-typography">
+<article class="sample-wrapper igx-typography" >
     <igx-accordion #accordion [singleBranchExpand]="singleBranchExpand">
-        <igx-expansion-panel>
+        <igx-expansion-panel *ngFor="let f of faq">
             <igx-expansion-panel-header>
                 <igx-expansion-panel-title>
-                    Are you open on Holidays?
+                    {{f.question}}
                 </igx-expansion-panel-title>
             </igx-expansion-panel-header>
             <igx-expansion-panel-body>
-                We are open for service during any holiday except New Years
-            </igx-expansion-panel-body>
-        </igx-expansion-panel>
-        <igx-expansion-panel>
-            <igx-expansion-panel-header>
-                <igx-expansion-panel-title>Do you take reservations?</igx-expansion-panel-title>
-            </igx-expansion-panel-header>
-            <igx-expansion-panel-body>
-                <div class="body-container">
-                    We do take reservations and 15 minutes wait time until you arrive otherwise we have to forfeit your seat to other customers
-                </div>
-            </igx-expansion-panel-body>
-        </igx-expansion-panel>
-        <igx-expansion-panel>
-            <igx-expansion-panel-header>
-                <igx-expansion-panel-title>Can we bring our own cake / wine for birthdays or celebrations?</igx-expansion-panel-title>
-            </igx-expansion-panel-header>
-            <igx-expansion-panel-body>
-                Yes, you may bring it however we do have additional fees for service
+                {{f.answer}}
             </igx-expansion-panel-body>
         </igx-expansion-panel>
     </igx-accordion>
