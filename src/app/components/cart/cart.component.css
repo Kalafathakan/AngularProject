@@ -41,3 +41,24 @@
 .co-error {
   color: red;
 }
+
+.cartImg, .cartDetails, .cartRemove {
+  display: table-cell;
+}
+
+.cartImg {
+  vertical-align: middle;
+}
+
+.cartImg img {
+  border: 2px solid black;
+}
+
+.cartDetails {
+  padding: 15px;
+  vertical-align: top;
+}
+
+.cartRemove {
+  vertical-align: middle;
+}

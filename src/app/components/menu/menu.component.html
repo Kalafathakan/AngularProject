@@ -22,14 +22,14 @@
                                 <h4><b>{{f.food_name}}</b></h4>
                                 <p class="food-price">${{f.price}}</p>
                                 <p class="food-desc">{{f.description}}</p>
-                                <button class="menu-btn">Add to cart</button>
+                                <button class="menu-btn" (click)="addCart(f)">Add to cart</button>
                             </div>
                         </div>
                     </ng-container>
                 </div>
             </ng-container>
             <button class='cart-btn menu-btn' mat-button (click)="sidenav.toggle()" mat-raised-button color="primary"
-            matBadge="8" matBadgePosition="before" matBadgeColor="warn"><mat-icon>shopping_cart</mat-icon><span id='cart-btn-text'>Cart</span></button>
+            matBadge="{{totalQuantity}}" matBadgePosition="before" matBadgeColor="warn"><mat-icon>shopping_cart</mat-icon><span id='cart-btn-text'>Cart</span></button>
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>
